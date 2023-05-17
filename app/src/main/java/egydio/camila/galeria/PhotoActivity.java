@@ -41,7 +41,7 @@ public class PhotoActivity extends AppCompatActivity {
         // executa a camera no celular assim que o toolbar da camera for selecionado
         switch (item.getItemId()) {
             case R.id.opShare:
-                dispatchTakePictureIntent();
+                sharePhoto();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

@@ -20,7 +20,7 @@
         tools:layout_editor_absoluteY="32dp" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+        android:id="@+id/rvGallery"
         android:layout_width="0dp"
         android:layout_height="600dp"
         android:background="#FFEBFA"
