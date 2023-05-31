@@ -64,8 +64,8 @@ public class MainActivity extends AppCompatActivity {
         rvGallery.setAdapter(mainAdapter);
 
         // calcula quantas fotos cabem na coluna
-        float w = getResources().getDimension(R.id.itemWidth);
-        int numberOfColumns = Utils.calculateNoOfColumns(MainActivity.this,w);
+        float w = getResources().getDimension(R.dimen.itemWidth);
+        int numberOfColumns = Util.calculateNoOfColumns(MainActivity.this,w);
 
         // exibe as fotos repeitando o espaço calculado
         GridLayoutManager gridLayoutManager = new GridLayoutManager(MainActivity.this, numberOfColumns);
@@ -127,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private File createImageFile() {
+    private File createImageFile() throws IOException {
 
         // cria o arquivo que armazena a imagem e organiza de acordo com data e hora
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
@@ -176,7 +176,7 @@ public class MainActivity extends AppCompatActivity {
 
     private boolean hasPermission(String permission) {
         // verifica se a permissao ja foi autorizada pelo usuario
-        if(Build.VERSION_CODES.SDK_INT >= Build.VERSION_CODES.M) {
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             return ActivityCompat.checkSelfPermission(MainActivity.this, permission) == PackageManager.PERMISSION_GRANTED;
         }
         return false;
@@ -199,7 +199,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (permissionsRejected.size() > 0) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                if(shouldShowRequestPermissionRationale(permissionsRejected.get(0)))
+                if(shouldShowRequestPermissionRationale(permissionsRejected.get(0)));
             }
 
             // avisa o usuario que a permissao é necessaria para o funcionamento da app
