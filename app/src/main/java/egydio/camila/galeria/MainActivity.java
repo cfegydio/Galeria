@@ -25,6 +25,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.ActionMenuView;
 import android.widget.Toast;
+import android.Manifest;
 
 import java.io.File;
 import java.io.IOException;
@@ -70,6 +71,13 @@ public class MainActivity extends AppCompatActivity {
         // exibe as fotos repeitando o espaço calculado
         GridLayoutManager gridLayoutManager = new GridLayoutManager(MainActivity.this, numberOfColumns);
         rvGallery.setLayoutManager(gridLayoutManager);
+
+        // Habilita as permissoes
+        List<String> permissions = new ArrayList<>();
+        permissions.add(Manifest.permission.CAMERA);
+
+        checkForPermissions(permissions);
+
     }
 
     @Override

@@ -1,6 +1,7 @@
 package egydio.camila.galeria;
 
 import android.graphics.Bitmap;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -23,11 +24,13 @@ public class MainAdapter extends RecyclerView.Adapter {
 
         @Override
         public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            return null;
+            LayoutInflater inflater = LayoutInflater.from(mainActivity);
+            View v = inflater.inflate(R.layout.list_item, parent, false);
+            return new MyViewHolder(v);
         }
 
         @Override
-        public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
+        public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, final int position) {
             ImageView imPhoto = holder.itemView.findViewById(R.id.imItem);
 
             // dimensões das imagens
@@ -35,7 +38,7 @@ public class MainAdapter extends RecyclerView.Adapter {
             int h = (int) mainActivity.getResources().getDimension(R.dimen.itemHeight);
 
             // carrega a imagem para definir do tamanho da imageview
-            Bitmap bitmap = Utils.getBitmap(photos.get(position),w,h);
+            Bitmap bitmap = Util.getBitmap(photos.get(position),w,h);
             imPhoto.setImageBitmap(bitmap);
 
             // define a função ao clicar na imagem
@@ -50,6 +53,6 @@ public class MainAdapter extends RecyclerView.Adapter {
 
         @Override
         public int getItemCount() {
-            return 0;
+            return photos.size();
         }
     }

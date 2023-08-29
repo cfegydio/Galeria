@@ -41,7 +41,7 @@ public class PhotoActivity extends AppCompatActivity {
         photoPath = i.getStringExtra("photo_path");
 
         // carrega e seta a imagem
-        Bitmap bitmap = Utils.getBitmap(photoPath);
+        Bitmap bitmap = Util.getBitmap(photoPath);
         ImageView imPhoto = findViewById(R.id.imPhoto);
         imPhoto.setImageBitmap(bitmap);
     }
@@ -74,4 +74,5 @@ public class PhotoActivity extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
 }
